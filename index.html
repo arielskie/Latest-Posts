@@ -3,10 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-
     <style>
-
         body {
             font-family: Arial, sans-serif;
             background-color: #121212;
@@ -14,47 +11,46 @@
             margin: 0;
             padding: 0;
         }
-   
-     /* Basic styling for the input element */
+
+        /* Basic styling for the input element */
         input[type="text"] {
-            width: 100%;  /* Full width */
-            padding: 10px;  /* Padding for inner spacing */
-            border: 2px solid #ccc;  /* Light border */
-            border-radius: 5px;  /* Rounded corners */
-            font-size: 16px;  /* Font size */
-            color: #333;  /* Text color */
-            background-color: #f9f9f9;  /* Light background */
-            box-sizing: border-box;  /* Ensures padding is included in width */
-            transition: border-color 0.3s ease;  /* Smooth transition on border color */
+            width: 100%;
+            padding: 10px;
+            border: 2px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+            color: #333;
+            background-color: #f9f9f9;
+            box-sizing: border-box;
+            transition: border-color 0.3s ease;
         }
 
-        /* Change border color on focus */
         input[type="text"]:focus {
-            border-color: #1df147;  /* Green border on focus */
-            outline: none;  /* Remove default outline */
+            border-color: #1df147;
+            outline: none;
         }
 
-        /* Add placeholder styling */
         input[type="text"]::placeholder {
-            color: #888;  /* Placeholder text color */
-            font-style: italic;  /* Italic placeholder text */
+            color: #888;
+            font-style: italic;
         }
 
-        /* Optional: Styling for a container */
         .input-container {
             margin: 0px 5px 0 0;
-            max-width: 400px;  /* Set a maximum width */
+            max-width: 400px;
         }
 
-   #content-container{
-     padding:15px 0px;
-   }
-  #abefilmpost-search-container {
+        #content-container {
+            padding: 15px 0px;
+        }
+
+        #abefilmpost-search-container {
             display: flex;
             align-items: center;
             gap: 0px;
             margin-bottom: 20px;
         }
+
         #abefilmpost-search-bar {
             padding: 8px;
             font-size: 14px;
@@ -62,26 +58,27 @@
             border-radius: 5px;
             background-color: #00800018;
             color: var(--text-color);
-            width: 100%; /* Search bar takes 100% of the width */
+            width: 100%;
         }
+
         #abefilmpost-filter-dropdown, #abefilmpost-author-dropdown {
             padding: 8px;
             box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
-            margin-top:0px;
-            margin-left:5px;
+            margin-top: 0px;
+            margin-left: 5px;
             font-size: 12px;
             border: 1px solid #00800049;
             border-radius: 5px;
             background-color: #00800018;
             color: var(--text-color);
-            width: 25%; /* Filters take 20% of the width each */
+            width: 25%;
         }
+
         #abefilmpost-filter-dropdown {
             text-transform: capitalize;
-            
         }
-        
-select {
+
+        select {
             width: 100%;
             padding: 10px;
             border: 2px solid #ccc;
@@ -91,18 +88,18 @@ select {
             transition: border-color 0.3s ease;
         }
 
-        /* Remove focus outline from the dropdown */
         select:focus {
-            outline: none;  /* Remove default outline */
-            border-color: #ccc;  /* Maintain the border color */
-            background-color: #f9f9f9;  /* Keep the background color the same */
+            outline: none;
+            border-color: #ccc;
+            background-color: #f9f9f9;
         }
+
         .abefilmpost-movie-grid {
-          
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 10px;
         }
+
         .abefilmpost-movie-card {
             background-color: var(--background-color);
             border-radius: 8px;
@@ -111,74 +108,73 @@ select {
             transition: transform 0.2s;
         }
 
+        @media only screen and (min-width: 480px) {
+            .abefilmpost-movie-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
 
-@media only screen and (min-width: 480px) {
-    .abefilmpost-movie-grid {
-        grid-template-columns: repeat(4, 1fr);
-    }
-}
+        @media only screen and (min-width: 768px) {
+            .abefilmpost-movie-grid {
+                grid-template-columns: repeat(6, 1fr);
+            }
+        }
 
-@media only screen and (min-width: 768px) {
-    .abefilmpost-movie-grid {
-        grid-template-columns: repeat(6, 1fr);
-    }
-}
+        @media only screen and (min-width: 1024px) {
+            .abefilmpost-movie-grid {
+                grid-template-columns: repeat(8, 1fr);
+            }
 
-@media only screen and (min-width: 1024px) {
-    .abefilmpost-movie-grid {
-        grid-template-columns: repeat(8, 1fr);
-    }
-    
-    .abefilmpost-thumbnail {
-        width: 100%;
-        height: 200px;
-        object-fit: cover;
-    }
-}
+            .abefilmpost-thumbnail {
+                width: 100%;
+                height: 200px;
+                object-fit: cover;
+            }
+        }
 
-@media only screen and (min-width: 1280px) {
-    .abefilmpost-movie-grid {
-        grid-template-columns: repeat(10, 1fr);
-    }
-}
+        @media only screen and (min-width: 1280px) {
+            .abefilmpost-movie-grid {
+                grid-template-columns: repeat(10, 1fr);
+            }
+        }
 
-
-    .abefilmpost-movie-card:hover {
+        .abefilmpost-movie-card:hover {
             transform: scale(1.05);
         }
+
         .abefilmpost-thumbnail {
-    width: 100%;
-    aspect-ratio: 2 / 3; /* Adjust for movie poster-like ratio */
-    object-fit: cover;
-}
+            width: 100%;
+            aspect-ratio: 2 / 3;
+            object-fit: cover;
+            position: relative; /* Ensure the play button is positioned relative to the image */
+        }
+
         .abefilmpost-movie-info {
             padding: 5px;
             text-align: center;
         }
+
         .abefilmpost-title {
             font-size: 12px;
             margin: 2px 0;
-            font-weight:normal;
+            font-weight: normal;
         }
-        
-       
 
-/* Mobile (up to 768px): 3 columns per row */
-@media (max-width: 768px) {
-    .horizontal-slider {
-        grid-template-columns: repeat(3, 1fr); /* 3 columns per row on mobile */
-    }
-}
+        @media (max-width: 768px) {
+            .horizontal-slider {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
 
-/* For even smaller screens (up to 480px), you can adjust to 2 or 1 column if necessary */
-@media (max-width: 480px) {
-    .horizontal-slider {
-        grid-template-columns: repeat(3, 1fr); /* 3 columns per row on mobile */
-    }
-}
+        @media (max-width: 480px) {
+            .horizontal-slider {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
         .play-button {
             position: absolute;
-            top: 45%;
+            top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
             background-color: rgba(0, 0, 0, 0.5);
@@ -191,27 +187,29 @@ select {
             opacity: 0;
             transition: opacity 0.3s ease-in-out;
         }
+
         .play-button:before {
             content: '▶';
-            color: #1df147; /* Green color for play icon */
+            color: #1df147;
             font-size: 25px;
             line-height: 40px;
-            margin-left:2px;
+            margin-left: 2px;
         }
-        .item:hover .play-button {
+
+        .abefilmpost-thumbnail:hover .play-button {
             opacity: 1;
         }
-        .item:hover img {
-            transform: scale(1.1); /* Zoom in on hover */
-            filter: brightness(0.5); /* Darken image on hover */
+
+        .abefilmpost-thumbnail:hover img {
+            transform: scale(1.02); 
+            filter: brightness(0.5);
         }
+
         .item a {
             text-decoration: none;
             color: inherit;
         }
-        
 
-    /* Floating Social Media Bar */
         .floating-social-bar {
             position: fixed;
             top: 70%;
@@ -236,7 +234,7 @@ select {
         }
 
         .floating-social-bar a:hover {
-            background-color: #1df147; /* Green hover color */
+            background-color: #1df147;
             transform: scale(1.1);
         }
 
@@ -244,14 +242,13 @@ select {
             width: 35px;
             height: px;
         }
-       
-       /* Back to Top Button */
+
         #back-to-top {
             position: fixed;
             bottom: 20px;
             right: 10px;
-            width: 45px; /* Adjusted size */
-            height: 45px; /* Adjusted size */
+            width: 45px;
+            height: 45px;
             background-color: rgba(0, 0, 0, 0.8);
             color: #fff;
             border-radius: 50%;
@@ -272,12 +269,11 @@ select {
         }
 
         #back-to-top img {
-            width: 20px; /* Adjust icon size */
+            width: 20px;
             height: 20px;
             z-index: 2;
         }
 
-        /* Circular Progress Bar */
         .progress-ring {
             position: absolute;
             top: 50%;
@@ -287,7 +283,7 @@ select {
 
         .progress-ring circle {
             fill: none;
-            stroke-width: 2; /* Thinner stroke */
+            stroke-width: 2;
             transform: rotate(-90deg);
             transform-origin: center;
         }
@@ -298,181 +294,177 @@ select {
 
         .progress-ring circle.progress {
             stroke: #1df147;
-            stroke-dasharray: 126; /* Circumference of the circle (2πr) */
-            stroke-dashoffset: 126; /* Start with full offset */
+            stroke-dasharray: 126;
+            stroke-dashoffset: 126;
             transition: stroke-dashoffset 0.2s linear;
         }
-    #load-more-btn {
-    display: block;
-    margin: 20px auto;
-    padding: 15px 20px;
-    background-color: #0aa20a;
-    color: #fff;
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
-    text-align: center;
-}
-#load-more-btn:hover{
-  background-color: green;
-}
-a{
-  text-decoration: none;
-}
-      </style>
+
+        #load-more-btn {
+            display: block;
+            margin: 20px auto;
+            padding: 15px 20px;
+            background-color: #0aa20a;
+            color: #fff;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            text-align: center;
+        }
+
+        #load-more-btn:hover {
+            background-color: green;
+        }
+
+        a {
+            text-decoration: none;
+        }
+    </style>
+</head>
 <body>
 
     <h4>Check our Latest Posts</h4>
-<div id="content-container">
-    <div id="abefilmpost-search-container">
-    <div class="input-container">
-        <input type="text" id="abefilmpost-search-bar" placeholder="Search by title...">
-    </div>
-        <select id="abefilmpost-filter-dropdown">
-            <option value="all">Genres</option>
-        </select>
-        <select id="abefilmpost-author-dropdown">
-            <option value="all">Authors</option>
-        </select>
-    </div>
-    <div class="abefilmpost-movie-grid" id="abefilmpost-movie-grid"></div>
+    <div id="content-container">
+        <div id="abefilmpost-search-container">
+            <div class="input-container">
+                <input type="text" id="abefilmpost-search-bar" placeholder="Search by title...">
+            </div>
+            <select id="abefilmpost-filter-dropdown">
+                <option value="all">Genres</option>
+            </select>
+            <select id="abefilmpost-author-dropdown">
+                <option value="all">Authors</option>
+            </select>
+        </div>
+        <div class="abefilmpost-movie-grid" id="abefilmpost-movie-grid"></div>
 
-<script>
-  
-  
-    // Use unique variable names for Blogger-related elements
-    let bloggerPosts = []; // Store all posts from Blogger feed
-    let bloggerMovieGrid = document.getElementById('abefilmpost-movie-grid');
-    let bloggerFilterDropdown = document.getElementById('abefilmpost-filter-dropdown');
-    let bloggerAuthorDropdown = document.getElementById('abefilmpost-author-dropdown');
-    let bloggerSearchBar = document.getElementById('abefilmpost-search-bar');
+        <script>
+            // Use unique variable names for Blogger-related elements
+            let bloggerPosts = []; // Store all posts from Blogger feed
+            let bloggerMovieGrid = document.getElementById('abefilmpost-movie-grid');
+            let bloggerFilterDropdown = document.getElementById('abefilmpost-filter-dropdown');
+            let bloggerAuthorDropdown = document.getElementById('abefilmpost-author-dropdown');
+            let bloggerSearchBar = document.getElementById('abefilmpost-search-bar');
 
-    // Recursive function to fetch all posts using JSONP
-    function fetchBloggerPosts(url) {
-        const script = document.createElement('script');
-        script.src = `${url}&callback=handleBloggerPosts`;
-        document.body.appendChild(script);
-    }
-
-    // Callback function to process Blogger posts
-    function handleBloggerPosts(json) {
-        const entries = json.feed.entry || [];
-        const genres = new Set();
-        const authors = new Set();
-
-        // Iterate through each post and store necessary details
-        entries.forEach(entry => {
-            let thumbnail = entry.media$thumbnail?.url || "https://via.placeholder.com/150";
-            if (thumbnail.includes('s72-c')) {
-                thumbnail = thumbnail.replace('s72-c', 's400');
+            // Recursive function to fetch all posts using JSONP
+            function fetchBloggerPosts(url) {
+                const script = document.createElement('script');
+                script.src = `${url}&callback=handleBloggerPosts`;
+                document.body.appendChild(script);
             }
-            const genre = entry.category ? entry.category.map(cat => cat.term.toLowerCase()) : [];
-            const author = entry.author[0].name.$t;
 
-            bloggerPosts.push({
-                title: entry.title.$t,
-                url: entry.link.find(link => link.rel === 'alternate').href,
-                thumbnail,
-                genre,
-                author
-            });
+            // Callback function to process Blogger posts
+            function handleBloggerPosts(json) {
+                const entries = json.feed.entry || [];
+                const genres = new Set();
+                const authors = new Set();
 
-            genre.forEach(g => genres.add(g));
-            authors.add(author);
-        });
+                // Iterate through each post and store necessary details
+                entries.forEach(entry => {
+                    let thumbnail = entry.media$thumbnail?.url || "https://via.placeholder.com/150";
+                    if (thumbnail.includes('s72-c')) {
+                        thumbnail = thumbnail.replace('s72-c', 's400');
+                    }
+                    const genre = entry.category ? entry.category.map(cat => cat.term.toLowerCase()) : [];
+                    const author = entry.author[0].name.$t;
 
-        populateBloggerFilterDropdown([...genres]);
-        populateBloggerAuthorDropdown([...authors]);
+                    bloggerPosts.push({
+                        title: entry.title.$t,
+                        url: entry.link.find(link => link.rel === 'alternate').href,
+                        thumbnail,
+                        genre,
+                        author
+                    });
 
-        const nextLink = json.feed.link.find(link => link.rel === "next");
-        if (nextLink) {
-            fetchBloggerPosts(nextLink.href + "&alt=json-in-script");
-        } else {
-            renderBloggerPosts(bloggerPosts); // Once all posts are fetched, render them
-        }
-    }
+                    genre.forEach(g => genres.add(g));
+                    authors.add(author);
+                });
 
-    // Populate genre filter dropdown
-    function populateBloggerFilterDropdown(genres) {
-        genres.sort().forEach(genre => {
-            const option = document.createElement('option');
-            option.value = genre;
-            option.textContent = capitalizeFirstLetter(genre);
-            bloggerFilterDropdown.appendChild(option);
-        });
-    }
+                populateBloggerFilterDropdown([...genres]);
+                populateBloggerAuthorDropdown([...authors]);
 
-    // Populate author dropdown
-    function populateBloggerAuthorDropdown(authors) {
-        authors.sort().forEach(author => {
-            const option = document.createElement('option');
-            option.value = author.toLowerCase();
-            option.textContent = author;
-            bloggerAuthorDropdown.appendChild(option);
-        });
-    }
+                const nextLink = json.feed.link.find(link => link.rel === "next");
+                if (nextLink) {
+                    fetchBloggerPosts(nextLink.href + "&alt=json-in-script");
+                } else {
+                    renderBloggerPosts(bloggerPosts); // Once all posts are fetched, render them
+                }
+            }
 
-    // Capitalize first letter of genre (or any string)
-    function capitalizeFirstLetter(str) {
-        return str.charAt(0).toUpperCase() + str.slice(1);
-    }
+            // Populate genre filter dropdown
+            function populateBloggerFilterDropdown(genres) {
+                genres.sort().forEach(genre => {
+                    const option = document.createElement('option');
+                    option.value = genre;
+                    option.textContent = capitalizeFirstLetter(genre);
+                    bloggerFilterDropdown.appendChild(option);
+                });
+            }
 
-    // Render Blogger posts as movie cards
-    function renderBloggerPosts(posts) {
-        bloggerMovieGrid.innerHTML = '';
-        posts.forEach(post => {
-            const movieCard = document.createElement('div');
-            movieCard.className = 'abefilmpost-movie-card';
-            movieCard.innerHTML = `
-                <a href="${post.url}" target="_blank">
-                    <img class="abefilmpost-thumbnail" src="${post.thumbnail}" alt="${post.title}">
-                </a>
-                <div class="abefilmpost-movie-info">
-                    <h3 class="abefilmpost-title">${post.title}</h3>
-                </div>
-            `;
-            bloggerMovieGrid.appendChild(movieCard);
-        });
-    }
+            // Populate author dropdown
+            function populateBloggerAuthorDropdown(authors) {
+                authors.sort().forEach(author => {
+                    const option = document.createElement('option');
+                    option.value = author.toLowerCase();
+                    option.textContent = author;
+                    bloggerAuthorDropdown.appendChild(option);
+                });
+            }
 
-    // Apply filters (genre, author, and search query) to Blogger posts
-    function applyBloggerFilters() {
-        const query = bloggerSearchBar.value.toLowerCase();
-        const genreFilter = bloggerFilterDropdown.value;
-        const authorFilter = bloggerAuthorDropdown.value;
+            // Capitalize first letter of genre (or any string)
+            function capitalizeFirstLetter(str) {
+                return str.charAt(0).toUpperCase() + str.slice(1);
+            }
 
-        const filteredPosts = bloggerPosts.filter(post => {
-            const matchesSearch = post.title.toLowerCase().includes(query);
-            const matchesGenre = genreFilter === "all" || post.genre.includes(genreFilter);
-            const matchesAuthor = authorFilter === "all" || post.author.toLowerCase() === authorFilter;
-            return matchesSearch && matchesGenre && matchesAuthor;
-        });
+            // Render Blogger posts as movie cards
+            function renderBloggerPosts(posts) {
+                bloggerMovieGrid.innerHTML = '';
+                posts.forEach(post => {
+                    const movieCard = document.createElement('div');
+                    movieCard.className = 'abefilmpost-movie-card';
+                    movieCard.innerHTML = `
+                        <a href="${post.url}" target="_blank">
+                            <div class="abefilmpost-thumbnail">
+                                <img src="${post.thumbnail}" alt="${post.title}">
+                                <div class="play-button"></div>
+                            </div>
+                        </a>
+                        <div class="abefilmpost-movie-info">
+                            <h3 class="abefilmpost-title">${post.title}</h3>
+                        </div>
+                    `;
+                    bloggerMovieGrid.appendChild(movieCard);
+                });
+            }
 
-        renderBloggerPosts(filteredPosts);
-    }
+            // Apply filters (genre, author, and search query) to Blogger posts
+            function applyBloggerFilters() {
+                const query = bloggerSearchBar.value.toLowerCase();
+                const genreFilter = bloggerFilterDropdown.value;
+                const authorFilter = bloggerAuthorDropdown.value;
 
-    // Add event listeners
-    bloggerSearchBar.addEventListener('input', applyBloggerFilters);
-    bloggerFilterDropdown.addEventListener('change', applyBloggerFilters);
-    bloggerAuthorDropdown.addEventListener('change', applyBloggerFilters);
+                const filteredPosts = bloggerPosts.filter(post => {
+                    const matchesSearch = post.title.toLowerCase().includes(query);
+                    const matchesGenre = genreFilter === "all" || post.genre.includes(genreFilter);
+                    const matchesAuthor = authorFilter === "all" || post.author.toLowerCase() === authorFilter;
+                    return matchesSearch && matchesGenre && matchesAuthor;
+                });
 
-    // Start fetching all Blogger posts
-    const initialBloggerFeedUrl = "https://abefilmstreamtv.blogspot.com/feeds/posts/summary?alt=json-in-script&max-results=500";
-    fetchBloggerPosts(initialBloggerFeedUrl);
-    
-    
-</script>
+                renderBloggerPosts(filteredPosts);
+            }
 
-<a href="https://abefilmstreamtv.blogspot.com/?m=1">
-<button id="load-more-btn">Go to homepage to see more</button>
-</a>
+            // Add event listeners
+            bloggerSearchBar.addEventListener('input', applyBloggerFilters);
+            bloggerFilterDropdown.addEventListener('change', applyBloggerFilters);
+            bloggerAuthorDropdown.addEventListener('change', applyBloggerFilters);
 
+            // Start fetching all Blogger posts
+            const initialBloggerFeedUrl = "https://abefilmstreamtv.blogspot.com/feeds/posts/summary?alt=json-in-script&max-results=500";
+            fetchBloggerPosts(initialBloggerFeedUrl);
+        </script>
+
+        <a href="https://abefilmstreamtv.blogspot.com/?m=1">
+            <button id="load-more-btn">Go to homepage to see more</button>
+        </a>
     </div>
-
-
-
-
-
 </body>
 </html>
-
